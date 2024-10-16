@@ -1,0 +1,31 @@
+name: 'usando_dbt'
+version: '1.0.0'
+config-version: 2
+
+
+# Nome do profile a ser usado (mesmo nome definido no profiles.yml)
+profile: 'default'
+
+# Este caminho deve apontar para o diretório onde seus modelos estão localizados
+model-paths: ["models"]
+
+# Onde você quer que o DBT grave os resultados de seus modelos
+target-path: "target"
+
+# Onde o DBT colocará arquivos temporários, como arquivos de manifest
+clean-targets:
+  - "target"
+  - "dbt_modules"
+
+# Variáveis globais que você pode usar no seu projeto
+vars:
+  my_variable: 'valor'
+
+# Configurações adicionais
+quoting:
+  identifier: true
+
+models:
+  usando_dbt:
+    cotacoes:
+      materialized: table
